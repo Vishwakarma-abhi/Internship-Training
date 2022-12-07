@@ -1,13 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:task1/controllers/login_controllers.dart';
+import 'package:task1/views/cv_Screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:task1/views/login_screen.dart';
 
 // import 'profile_view.dart';
 
 class HomeScreen extends StatelessWidget {
-  final LoginController loginController = Get.find();
   final auth = FirebaseAuth.instance;
 
   @override
@@ -18,10 +18,9 @@ class HomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(loginController.authStatus()),
           TextButton(
               onPressed: () {
-                // Get.to(ProfileView());
+                Get.to(my_profile());
               },
               child: Icon(
                 Icons.person_add_alt,

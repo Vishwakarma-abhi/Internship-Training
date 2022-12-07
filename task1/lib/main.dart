@@ -5,8 +5,6 @@ import 'package:get/get.dart';
 import 'package:task1/views/home_Screen.dart';
 import 'package:task1/views/login_screen.dart';
 
-import 'package:task1/controllers/login_controllers.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -15,7 +13,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-  final loginController = Get.put(LoginController());
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
