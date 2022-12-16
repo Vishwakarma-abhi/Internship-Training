@@ -1,7 +1,9 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:task1/views/home_Screen.dart';
+import 'package:task1/views/profile_checker.dart';
 import 'package:task1/views/viewprofile.dart';
+import 'package:get/get.dart';
 
 class my_profile extends StatefulWidget {
   const my_profile({Key? key}) : super(key: key);
@@ -37,6 +39,8 @@ class _my_profileState extends State<my_profile> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color(0xFFFAEDED),
+        // body: isprofile
+        //     ? checkprofile()
         body: SingleChildScrollView(
           child: Column(children: [
             Column(
@@ -127,10 +131,19 @@ class _my_profileState extends State<my_profile> {
                       'City': state.text,
                     };
 
-                    dbRef.push().set(students);
+                    if (isprofile) {
+                      Get.snackbar('Profile Already Exist', 'View Profile');
+                      Get.to(myprofile());
+                    } else {
+                      dbRef.push().set(students);
+                      setState(() {
+                        isprofile = true;
+                      });
+                      Get.snackbar('Profile Created', '');
+                    }
 
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) => myprofile())));
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: ((context) => myprofile())));
                   },
                   child: Container(
                     child: Center(

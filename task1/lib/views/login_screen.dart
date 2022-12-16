@@ -38,7 +38,7 @@ class LoginScreen extends StatelessWidget {
                   child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: ElevatedButton(
-                        onPressed: () r{
+                        onPressed: () {
                           // await FirebaseAuth.instance.verifyPhoneNumber(
                           //   phoneNumber: '+91' + phone,
                           //   verificationCompleted:

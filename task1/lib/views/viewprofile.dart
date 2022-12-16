@@ -16,7 +16,7 @@ class _myprofileState extends State<myprofile> {
   DatabaseReference reference =
       FirebaseDatabase.instance.reference().child('Resume');
 
-  Widget listItem({required Map student}) {
+  Widget Card({required Map student}) {
     return Stack(
       children: [
         SizedBox(),
@@ -133,8 +133,13 @@ class _myprofileState extends State<myprofile> {
                           )),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 0,
                         ),
+                        // IconButton(
+                        //     onPressed: () {
+                        //       reference.child(student['key']).remove();
+                        //     },
+                        //     icon: Icon(Icons.blender))
                       ],
                     )),
               ),
@@ -182,7 +187,7 @@ class _myprofileState extends State<myprofile> {
                     Map profiledata = snapshot.value as Map;
                     profiledata['key'] = snapshot.key;
 
-                    return listItem(student: profiledata);
+                    return Card(student: profiledata);
                   }),
             ),
           ),
