@@ -26,7 +26,6 @@ class HomeScreen extends StatelessWidget {
                 Icons.person_add_alt,
                 size: 50,
               )),
-          Image.asset('Assets/UPI.png')
         ],
       )),
       floatingActionButton: FloatingActionButton(
